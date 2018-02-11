@@ -16,13 +16,13 @@
 -type time_unit() :: min | sec | ms | mu.
 -type time_spec() :: {non_neg_integer(), time_unit()}.
 
--ifdef(namespaced_types).
+%-ifdef(namespaced_types).
 -type p_dict() :: dict:dict().
 -type p_requestor_queue() :: queue:queue({{pid(), _}, timer:tref()}).
--else.
--type p_dict() :: dict().
--type p_requestor_queue() :: queue().
--endif.
+%-else.
+%-type p_dict() :: dict().
+%-type p_requestor_queue() :: queue().
+%-endif.
 
 -record(pool, {
           name             :: atom(),
